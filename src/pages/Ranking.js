@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ListPLays from '../components/ListPlays';
 
-// Melhoria para este componente seria implementar uma grid com paginação
-
 const Container = styled.ul`
   display: flex;
   flex: 1;
