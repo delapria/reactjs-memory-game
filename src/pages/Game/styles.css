@@ -1,0 +1,12 @@
+.cards {
+  width: 90%;
+  max-width: 650px;
+  margin: auto;
+
+  display: grid;
+  /* Controlar responsividade dos cards */
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  grid-gap: 10px;
+  justify-items: center;
+  margin-bottom: 10px;
+};

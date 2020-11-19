@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  flex: 1;
+  /* align-content: stretch; */
+  width: 120px;
+  height: 160px;
+  cursor: pointer;
+  /* transition: all 0.3s ease 0s; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+};
+
+/* const Image = styled.img`
+  object-fit: cover;
+  overflow: hidden;
+  vertical-align: middle;
+`; */
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card_face {
+  object-fit: cover;
+  overflow: hidden;
+  vertical-align: middle;
+
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.face-back {
+  transform: rotateY(180deg);
+}

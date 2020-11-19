@@ -19,6 +19,10 @@ const Title = styled.strong`
   font-size: 45px;
   letter-spacing: 1px;
   text-shadow: 0 10px 35px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.32);
+
+  @media (max-width: 540px) {
+    font-size: 35px;
+  }
 `;
 
 const ButtonHome = styled.button`

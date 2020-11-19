@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Card from '../components/Card';
-import GameDataInfo from '../components/GameDataInfo';
+import Card from '../../components/Card';
+import GameDataInfo from '../../components/GameDataInfo';
 import {
   setCountPlaysAction,
   resetGameAction,
   setPlaysAction,
   resetPlayAction,
   setFetchingAction,
-} from '../redux/games';
-import { savePlaysStorageThunk } from '../thunk/games';
-import FinishModal from '../components/FinishModal';
-import { CreatCards, shuffleArray } from '../utils/functions';
+} from '../../redux/games';
+import { savePlaysStorageThunk } from '../../thunk/games';
+import FinishModal from '../../components/FinishModal';
+import { CreatCards, shuffleArray } from '../../utils/functions';
 
-const Container = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-`;
-
-const ContainerCards = styled.div`
-  display: grid;
-  grid-gap: 10px 10px;
-  grid-template-columns: auto auto auto auto auto;
-  padding: 10px;
-`;
+import './styles.css';
 
 class Game extends Component {
   constructor(props) {
@@ -41,11 +29,11 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    const newCards = this.generateCards();
+    const newCards = this.handleGenerateCards();
     return this.setState({ cards: newCards });
   }
 
-  generateCards = () => {
+  handleGenerateCards = () => {
     const newCards = CreatCards();
     return shuffleArray(newCards);
   };
@@ -64,7 +52,7 @@ class Game extends Component {
     this.setState({ modalIsOpen: false });
     const { resetGame, history } = this.props;
     resetGame();
-    this.setState({ cards: this.generateCards() });
+    this.setState({ cards: this.handleGenerateCards() });
     this.onResetCardsFirsSecond();
     this.setState({ countHits: 1 });
     history.push('/');
@@ -73,13 +61,13 @@ class Game extends Component {
   setResetGame = () => {
     const { resetPlay } = this.props;
     resetPlay();
-    this.setState({ cards: this.generateCards() });
+    this.setState({ cards: this.handleGenerateCards() });
     this.onResetCardsFirsSecond();
     this.setState({ modalIsOpen: false });
     this.setState({ countHits: 1 });
   };
 
-  setCountHits = () => {
+  handleCountHits = () => {
     const { countHits } = this.state;
     this.setState({ countHits: countHits + 1 });
   };
@@ -120,7 +108,7 @@ class Game extends Component {
     const { setCountPlays, setPlays } = this.props;
     if (!firstId && !secondId) return;
 
-    this.setCountHits();
+    this.handleCountHits();
     const firstCard = cards.filter(cardItem => cardItem.id === firstId);
     firstCard[0].canFlip = false;
     this.setState({ cards });
@@ -183,19 +171,17 @@ class Game extends Component {
           playerName={playerName}
           countPlays={countPlays}
         />
-        <Container>
-          <ContainerCards>
-            {cards.map(card => (
-              <Card
-                onClick={() => this.onCardClick(card.id)}
-                key={card.id}
-                urlBack={card.urlBack}
-                urlFront={card.urlFront}
-                isFlipped={card.isFlipped}
-              />
-            ))}
-          </ContainerCards>
-        </Container>
+        <section className="cards">
+          {cards.map(card => (
+            <Card
+              onClick={() => this.onCardClick(card.id)}
+              key={card.id}
+              urlBack={card.urlBack}
+              urlFront={card.urlFront}
+              isFlipped={card.isFlipped}
+            />
+          ))}
+        </section>
       </>
     );
   }

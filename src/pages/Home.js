@@ -16,7 +16,7 @@ const Container = styled.form`
 
 const ButtonStart = styled.button`
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 2.0rem;
   margin-top: 10px;
   background-color: #f06809;
   font-weight: bold;
@@ -31,7 +31,7 @@ const ButtonStart = styled.button`
 
 const ButtonList = styled.button`
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 2.0rem;
   margin-top: 10px;
   background-color: #ce8900;
   font-weight: bold;
@@ -45,8 +45,12 @@ const ButtonList = styled.button`
 `;
 
 const InputName = styled.input`
-  font-size: 18px;
+  margin-top: 10px;
+  font-size: 1.8rem;
   width: 300px;
+  height: 35px;
+  border-radius: 3px;
+  padding: 2px;
 `;
 
 class Home extends Component {
