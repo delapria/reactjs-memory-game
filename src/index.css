@@ -31,6 +31,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background-image: url('./assets/images/background.png'); */
   /* background-size: cover; */
-  background: linear-gradient(90deg, rgba(66,66,66,0.9836309523809523) 0%, rgba(236,236,236,1) 91%, rgba(251,253,254,1) 100%);
+  background: linear-gradient(90deg, rgba(66,66,66,0.9836309523809523) 0%, rgba(251,253,254,1) 100%);
 }
 
